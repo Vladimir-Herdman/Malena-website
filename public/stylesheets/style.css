@@ -1,0 +1,80 @@
+:root {
+	--background-color: #f2f2ed;
+}
+
+@font-face {
+	font-family: "Inter";
+	src: url("../fonts/Inter-Regular.woff2") format("woff2");
+	font-weight: normal;
+	font-style: normal;
+}
+
+html, body * {
+	margin: 0;
+	padding: 0;
+	background-color: white;
+	font-family: "Inter", sans-serif, Arial, Helvetica;
+}
+
+header div {
+	display: flex;
+	margin: 0;
+	margin-top: 20px;
+	padding: 0;
+	width: 100%;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+header div a {
+	display: inline-flex;
+	justify-content: center;
+}
+.navbar {
+	margin-top: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	column-gap: 10%;;
+	row-gap: 20px;
+	width: 50%;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+.navbar a {
+	font-size: 1.3rem;
+	text-decoration: none;
+	position: relative;
+	color: #404040;
+	z-index: 2;
+}
+.navbar a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+	border-radius: 10%;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #404040;
+    transition: width 0.4s ease; /* Smooth width transition for underline */
+	z-index: 2;
+}
+.navbar a:hover::after {
+	width: 100%;
+}
+@media only screen and (max-width: 620px) {
+	.navbar {
+		flex-direction: column;
+	}
+}
+.full-width-line span {
+	display: block;
+	height: 2px;
+	width: 100%;
+	color: red;
+	margin-top: 3px;
+	background-color: red;
+	border: none;
+}
