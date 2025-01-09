@@ -113,7 +113,65 @@ header div a {
 	font-size: 18px;
 }
 
+/******************* Family Tree ********************/
+#timeline {
+	margin-top: 80px;
+}
+.drop-down {
+	max-height: 50px;
+	overflow: hidden;
+	transition: max-height 1s ease;
+}
+.drop-down h3{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	margin-left: 10%;
+	margin-right: 10%;
+	padding: 15px 5px;
+	border-top: 1px solid red;
+}
+.drop-down h3:hover {
+	background-color: red;
+	color: white;
+	.arrow {
+		background-color: red;
+		border-color: white;
+	}
+}
+.arrow {
+	border: solid black;
+	border-width: 0 5px 5px 0;
+	display: inline-block;
+	padding: 10px;
+	transform: rotate(45deg) scale(0.5);
+	margin-left: auto;
+	white-space: nowrap;
+	transition: transform ease 0.5s;
+}
+.arrow.flip {
+	transform: rotate(225deg) scale(0.5);
+}
+#tree {
+	margin-left: 10%;
+	margin-right: 10%;
+	border: 1px solid black;
+	height: 500px;
+	width: 70%;
+}
+.drop-down.flip {
+	max-height: 700px;
+}
+
 /******************* Media Queries ********************/
+@media only screen and (max-width: 1000px) {
+	#overview h1 {
+		font-size: 5rem;
+	}
+	#overview h2 {
+		font-size: 2rem;
+	}
+}
 @media only screen and (max-width: 620px) {
 	.navbar {
 		flex-direction: column;
@@ -123,5 +181,18 @@ header div a {
 	}
 	#overview h2 {
 		font-size: 1.5rem;
+	}
+}
+@media only screen and (max-width: 427px) {
+	.arrow {
+		padding: 30px;
+		border-width: 0 10px 10px 0;
+		transform: rotate(45deg) scale(0.2);
+	}
+	.arrow.flip {
+		transform: rotate(225deg) scale(0.2);
+	}
+	.drop-down {
+		max-height: 85px;
 	}
 }

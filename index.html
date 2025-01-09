@@ -108,8 +108,47 @@
 			</p>
 		</section>
 
-		<section id="timelines">
-
+		<section id="timeline">
+			<div class="drop-down">
+				<h3>De Katen and Malena 871 - 1066<span class="arrow"></span></h3>
+				<div id="tree"></div>
+			</div>
+			<div class="drop-down">
+				<h3>De Katen and Malena 871 - 1066<span class="arrow"></span></h3>
+				<div id="tree2"></div>
+			</div>
+			<div class="drop-down">
+				<h3>De Katen and Malena 871 - 1066<span class="arrow"></span></h3>
+				<div id="tree3"></div>
+			</div>
+			<div class="drop-down">
+				<h3>De Katen and Malena 871 - 1066<span class="arrow"></span></h3>
+				<div id="tree4"></div>
+			</div>
+			<div class="drop-down">
+				<h3>De Katen and Malena 871 - 1066<span class="arrow"></span></h3>
+				<div id="tree5"></div>
+			</div>
+			<div class="drop-down">
+				<h3>De Katen and Malena 871 - 1066<span class="arrow"></span></h3>
+				<div id="tree6"></div>
+			</div>
+			<div class="drop-down">
+				<h3>De Katen and Malena 871 - 1066<span class="arrow"></span></h3>
+				<div id="tree7"></div>
+			</div>
+			<div class="drop-down">
+				<h3>De Katen and Malena 871 - 1066<span class="arrow"></span></h3>
+				<div id="tree8"></div>
+			</div>
+			<div class="drop-down">
+				<h3>De Katen and Malena 871 - 1066<span class="arrow"></span></h3>
+				<div id="tree9"></div>
+			</div>
+			<div class="drop-down">
+				<h3>De Katen and Malena 871 - 1066<span class="arrow"></span></h3>
+				<div id="tree10"></div>
+			</div>
 		</section>
 
 		<section id="explore_further">
@@ -120,6 +159,7 @@
 
 		</footer>
 		
+		<script src="./familytree.js"></script>
 		<script>
 			// One time at start
 			const currentURL = window.location.href;
@@ -127,12 +167,14 @@
 			for (let i = 0; i < links_list.length; i++) {
 				if (links_list[i].href === currentURL) {
 					links_list[i].style = 'text-decoration: underline; text-underline-offset: 6px;';
-					//break;
+					break;
 				}
 			}
 
 			// Events
 			const header_img = document.getElementById("header-img");
+			const family_trees = document.getElementsByClassName("drop-down");
+			
 			window.addEventListener("resize", () => {
 				header_img.style.opacity = 0;
 
@@ -184,6 +226,71 @@
 					}
 				);
 			};
+			
+			// Family Trees
+			let family = new FamilyTree("#tree", {
+				interactive: true,
+				zoom: true,
+				nodeBinding: {
+					field_0: "name"
+				},
+				nodes: [
+					{id: 1, pids: [2], name: "Amber McKenzie", gender: "female"},
+					{id: 2, pids: [1], name: "Ava Field", gender: "male"},
+					{id: 3, mid: 1, fid: 2, name: "Peter Stevens", gender: "male"}
+				],
+				onloaded: () => {
+					this.fit();
+				}
+			});
+			let family2 = new FamilyTree("#tree10", {
+				interactive: true,
+				zoom: true,
+				nodeBinding: {
+					field_0: "name"
+				},
+				nodes: [
+					{id: 1, pids: [2], name: "Amber McKenzie", gender: "female"},
+					{id: 2, pids: [1], name: "Ava Field", gender: "male"},
+					{id: 3, mid: 1, fid: 2, name: "Peter Stevens", gender: "male"}
+				],
+				onloaded: () => {
+					this.fit();
+				}
+			});
+
+			for (let i = 2; i < 10; i++) {
+				let tree = document.getElementById("tree" + i);
+				tree.style.marginLeft = "10%";
+				tree.style.marginRight = "10%";
+				tree.style.border = "1px solid black";
+				tree.style.height = "500px";
+				tree.style.width = "70%";
+
+				let family_tree = new FamilyTree("#tree" + i, {
+					interactive: true,
+					zoom: true,
+					nodeBinding: {
+						field_0: "name"
+					},
+					nodes: [
+						{id: 1, pids: [2], name: "Amber McKenzie", gender: "female"},
+						{id: 2, pids: [1], name: "Ava Field", gender: "male"},
+						{id: 3, mid: 1, fid: 2, name: "Peter Stevens", gender: "male"}
+					],
+					onloaded: () => {
+						this.fit();
+					}
+				});
+			}
+
+			for (let tree_period of family_trees) {
+				let arrow = tree_period.querySelector(".arrow");
+				tree_period.addEventListener("click", () => {
+					arrow.classList.toggle("flip");
+					tree_period.classList.toggle("flip");
+				});
+			}
 		</script>
 	</body>
 </html>
