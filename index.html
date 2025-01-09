@@ -208,11 +208,7 @@
 					break;
 				}
 				if (links_list[i].href === currentURL) {
-					let link_href = links_list[i].href.split("/");
 					links_list[i].style = "text-decoration: underline; text-underline-offset: 6px;";
-					if (link_href[link_href.length - 1] === "index.html") {
-						links_list[i].style = "text-decoration: underline; text-underline-offset: 6px";
-					}
 					break;
 				}
 			}
