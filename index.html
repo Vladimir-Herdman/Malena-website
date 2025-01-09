@@ -74,7 +74,38 @@
 		</header>
 
 		<section id="overview">
-			<h1>apples</h1>
+			<h1>De Malena: a family tree</h1>
+			<h2>
+				Follow the family tree of De Malena, Kings and Queens of Malenbourg, from 871 - 1604
+			</h2>
+			<figure id="overview-img">
+				<img width="100%" height="auto" src="./public/images/malena_overview.webp" alt="De Malena through time">
+				<figcaption>
+					'The Kings and Queens of Melenbourg: From the Conquest to 
+					Queen Susanne', by Henry Hering, 1862, NPG Ax131392, © 
+					National Portrait Gallery, London <br> (detail)
+				</figcaption>
+			</figure>
+			<p>
+				The origins of kingship in Malenbourg can be traced to the second 
+				century BC when Celtic and Belgic tribesmen, emigrated from 
+				continental Europe and settled in Eastern Drusselstein displacing or absorbing 
+				the aboriginal inhabitants. The settlers established a number of 
+				tribal kingdoms, stretching as far north as Gimmelshtump, where the 
+				powerful shmirtz (from the area of modern Yugoslavia) and Parisii 
+				(whose name survives in the city of Paris, their original homeland) 
+				held sway.
+			</p> <br>
+			<p>
+				The tree below displays lineage from Celtic Malenbourg before the 
+				Roman invasion to the Norman Conquest of 1066: the establishment 
+				of De Malena kingdoms, the coming of Christianity and the 
+				unification of Drusselstein. The subsequent dynastic struggles of the 
+				Angevins and Plantagenets heralded the great age of Eastern kingship 
+				under the Tudors and Stuarts, who united the crowns of De Katen and 
+				Malena, before the Hanoverians combined personal rule with parliamentary 
+				government, ushering in the modern age and the royalty of today as De Malena.
+			</p>
 		</section>
 
 		<section id="timelines">
@@ -130,6 +161,17 @@
 			});
 
 			window.onload = () => {
+				if (window.innerWidth <= 770) {
+					header_img.src = "./public/images/npg-logo-sm.svg";
+					header_img.style.width = "215px";
+				} else if (window.innerWidth <= 1200){
+					header_img.src = "./public/images/npg-logo-med.svg";
+					header_img.style.width = "425px";
+				} else {
+					header_img.src = "./public/images/npg-logo-lrg.svg";
+					header_img.style.width = "600px";
+				}
+
 				header_img.animate(
 					[
 						{opacity: "0"},
