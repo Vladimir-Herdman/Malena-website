@@ -204,7 +204,7 @@
 			let links_list = document.getElementById("links").children;
 			for (let i = 0; i < links_list.length; i++) {
 				if (links_list[i].href === currentURL) {
-					links_list[i].style = 'text-decoration: underline; text-underline-offset: 6px;';
+					links_list[i].style = 'text-decoration: underline; text-underline-offset: 6px; z-index: 2;';
 					break;
 				}
 			}
