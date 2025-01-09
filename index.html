@@ -203,8 +203,16 @@
 			const currentURL = window.location.href;
 			let links_list = document.getElementById("links").children;
 			for (let i = 0; i < links_list.length; i++) {
+				if (currentURL.split("/")[currentURL.split("/").length - 1] === "") {
+					links_list[0].style = "text-decoration: underline; text-underline-offset: 6px";
+					break;
+				}
 				if (links_list[i].href === currentURL) {
-					links_list[i].style = 'text-decoration: underline; text-underline-offset: 6px; z-index: 2;';
+					let link_href = links_list[i].href.split("/");
+					links_list[i].style = "text-decoration: underline; text-underline-offset: 6px;";
+					if (link_href[link_href.length - 1] === "index.html") {
+						links_list[i].style = "text-decoration: underline; text-underline-offset: 6px";
+					}
 					break;
 				}
 			}
