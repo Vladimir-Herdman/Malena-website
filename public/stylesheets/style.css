@@ -95,6 +95,8 @@ header div a {
 	text-align: center;
 	padding-left: 10%;
 	padding-right: 10%;
+	width: fit-content;
+	height: auto;
 }
 #overview h1 {
 	font-size: 7rem;
